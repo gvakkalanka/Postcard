@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         //IBAction instead of IBOutlet b.c there is an action that takes place
         //parameter is a passed in UIButton.(Button passes itself into the function in case you want to change the nature of the button once its pressed)
         //everything in here runs when you press the button
+        //adding a comment here to test commits
         
         messageLabel.hidden = false
         messageLabel.text = enterMessageTextField.text
