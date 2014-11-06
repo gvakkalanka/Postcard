@@ -9,7 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    //@IBOutlet is for the compiler to let it know we're referencing a storyboard item
+    //weak is talking about the type of pointer: weak
+    //var means variable
+    //explanation point is for "optional"...
+    @IBOutlet weak var enterNameTextField: UITextField!
+    @IBOutlet weak var enterMessageTextField: UITextField!
+    @IBOutlet weak var mailButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +31,21 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func sendMailButtonPressed(sender: UIButton) {
+        
+        //IBAction instead of IBOutlet b.c there is an action that takes place
+        //parameter is a passed in UIButton.(Button passes itself into the function in case you want to change the nature of the button once its pressed)
+        //everything in here runs when you press the button
+        
+        messageLabel.hidden = false
+        messageLabel.text = enterMessageTextField.text
+        messageLabel.textColor = UIColor.redColor()
+        
+        
+        enterMessageTextField.text = ""
+        enterMessageTextField.resignFirstResponder()//makes the keyboard go away
+        
+        mailButton.setTitle("Mail Sent", forState: UIControlState.Normal) //Buttons have the concept of "State" or control state. UIControlState.Normal is default. You can also do selected or pressed
+    }
 }
 
